@@ -1,11 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
 import MedicineForm from "./medicineForm";
+import cartContext from "../../Store/Cart-Context";
 
-const medicineItem=(props)=>{
-    // const ctx=useContext(cartContext)
-    const addMedicineToCart=()=>{
-        
-        // ctx.addMedicineToCart()
+const MedicineItem=(props)=>{
+     const ctx=useContext(cartContext)
+    const addMedicineToCart=(amt)=>{
+        console.log(amt);
+         ctx.addItem({id:props.id,price:props.price,amount:amt,description:props.description,name:props.name})
     }
     return( 
         
@@ -26,4 +27,4 @@ const medicineItem=(props)=>{
 }
 
 
-export default medicineItem;
+export default MedicineItem;

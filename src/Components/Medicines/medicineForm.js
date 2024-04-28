@@ -5,10 +5,10 @@ const MedicineForm=(props)=>{
     const amountInputRef=useRef();
 
     const addMedicineToCart=(e)=>{
+        e.preventDefault()
         const id=e.target.id.substring(4)
 
-        props.addMedicineToCart(+id,+amountInputRef.current.value)
-        console.log(+amountInputRef.current.value)
+        props.addMedicineToCart(+amountInputRef.current.value)
     }
 
     return(<React.Fragment>

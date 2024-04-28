@@ -2,6 +2,8 @@ import React,{useState} from "react";
 import './App.css';
 import Form from "./Components/Form/form"
 import Medicines from "./Components/Medicines/medicines"
+import CartProvider from "./Store/Cart-Provider";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
   const [medicine,setMedicine]=useState([{id:1,name:"paracetamol",description:"used for mild fever",price:5,amount:12}])
@@ -23,11 +25,12 @@ const disableCart=()=>{
 }
 
   return (
-    <React.Fragment>
-    {/* {cartIsShown&&<Cart   onCloseCart={disableCart}></Cart>} */}
+    <CartProvider>
+      <button onClick={enableCart}>Cart</button>
+     {cartIsShown&&<Cart   onCloseCart={disableCart}></Cart>} 
      <Form addMedicine={addMedicine}></Form>
     <Medicines Items={medicine}></Medicines> 
-  </React.Fragment>
+    </CartProvider>
   );
 }
 
