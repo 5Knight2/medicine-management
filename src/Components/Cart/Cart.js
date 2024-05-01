@@ -13,7 +13,9 @@ const Cart=(props)=>{
     }
 
     let  cartItems=ctx.items;
-        cartItems=cartItems.map((c)=>{return(
+        cartItems=cartItems.map((c)=>{
+            console.log(c.id,c.price)
+            return(
         <li key={c.id} >{c.name}"
         <div >
         <div >{"₹"+c.price.toFixed(2)} </div>

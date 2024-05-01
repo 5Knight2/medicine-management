@@ -8,14 +8,17 @@ const CartProvider=(props)=>{
 
  
         const addItemCartHandler = (item) => {
-            const existingItemIndex = items.findIndex((c) => c.id === item.id);
+            const existingItemIndex = items.findIndex((c) => c.id == item.id);
         
             if (existingItemIndex !== -1) {
                 const updatedItems = [...items];
                 updatedItems[existingItemIndex].amount += item.amount;
                 setItems(updatedItems);
             } else {
-                setItems((prevState) => [...prevState, item]);
+                const existingItem=props.Items.filter((c)=>c.id==item.id);
+
+                setItems((prevState) =>{ 
+                    return ([...prevState, {...existingItem[0],amount:item.amount}])});
             }
         
             setTotalAmount((amount) => amount + item.price * item.amount);
@@ -27,9 +30,10 @@ const CartProvider=(props)=>{
     
     const removeItemFromCartHandler=(id)=>{
         setItems((prevState)=>{
-           return prevState.map((c)=>{if( c.id==id && c.amount>0){c.amount=c.amount-1
+           const newState= prevState.map((c)=>{if( c.id==id && c.amount>0){c.amount=c.amount-1
             setTotalAmount((amount)=>{return amount-c.price})}
         return c})
+        return newState
         })
     }
 
