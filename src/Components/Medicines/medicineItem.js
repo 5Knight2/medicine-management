@@ -1,4 +1,5 @@
 import React,{useContext} from "react";
+import classes from './medicineItem.module.css'
 import MedicineForm from "./medicineForm";
 import cartContext from "../../Store/Cart-Context";
 
@@ -10,13 +11,18 @@ const MedicineItem=(props)=>{
     }
     return( 
         
-        <li key={props.id} >
+        <li className={classes.list} key={props.id} >
            
-        <h3>{props.name}</h3>
-        <h4>{props.description} --
-        {"₹"+props.price.toFixed(2)}--
-        {props.amount}
+        <h3 className={classes.content}>{" "+props.name+" "}</h3>
+        <h4 className={classes.content}>{props.description} </h4>
+        <h4>
+        {"₹"+props.price.toFixed(2)}
         </h4>
+        <h4>
+        qty:{props.amount}
+        </h4>
+        
+       
         { <MedicineForm id={props.id} addMedicineToCart={addMedicineToCart}></MedicineForm> }
         
         </li>

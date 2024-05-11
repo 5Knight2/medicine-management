@@ -1,4 +1,5 @@
 import React,{useRef} from "react";
+import classes from './form.module.css'
 
 const Form=(props)=>{
 
@@ -16,18 +17,18 @@ const Form=(props)=>{
    }
     return(
         <React.Fragment>
-            <form>
+            <form className={classes.medicine}>
                 <label htmlFor="name">Medicine Name :</label>
-                <input type="text" name="name" id="name" ref={nameInputRef}></input>
+                <input className={classes.input} type="text" name="name" id="name" ref={nameInputRef}></input>
                 <label htmlFor="description">description :</label>
-                <input type="text" name="description" id="description" ref={descriptionInputRef}></input>
+                <input  className={classes.input} type="text" name="description" id="description" ref={descriptionInputRef}></input>
                 <label htmlFor="price">Price :</label>
-                <input type="number" name="price" id="price" min={1} defaultValue={1} ref={priceInputRef}></input>
+                <input  className={classes.input} type="number" name="price" id="price" min={1} defaultValue={1} ref={priceInputRef}></input>
                 <label htmlFor="amount">Amount :</label>
-                <input type="number" name="amount" id="amount" min={1} defaultValue={1} ref={amountInputRef}></input>
+                <input  className={classes.input} type="number" name="amount" id="amount" min={1} defaultValue={1} ref={amountInputRef}></input>
                 <br></br>
                 <br></br>
-                <input type="button" name="add" id="add" value="Add" onClick={addMedicine}></input>
+                <input className={classes.add} type="button" name="add" id="add" value="Add" onClick={addMedicine}></input>
                
             </form>
         </React.Fragment>

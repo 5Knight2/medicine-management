@@ -26,7 +26,7 @@ const disableCart=()=>{
 
   return (
     <CartProvider Items={medicine}>
-      <button onClick={enableCart}>Cart</button>
+      <button className="cart" onClick={enableCart}>Cart</button>
      {cartIsShown&&<Cart   onCloseCart={disableCart}></Cart>} 
      <Form addMedicine={addMedicine}></Form>
     <Medicines Items={medicine}></Medicines> 
